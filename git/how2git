@@ -1,0 +1,16 @@
+1. First, you need to create a NEW repository
+2. In local directory
+	#Initialized empty Git repository
+	git init  
+
+	# link local dir with github
+	git remote add origin https://github.com/raytroop/test.git 
+
+	# pull down from github repository 
+	git pull origin master
+
+3 Then you can use commit, push, pull
+	git add .
+	git commit -m "add file"
+	# input your github username and passwd to push
+	git push -u origin master
