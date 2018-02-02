@@ -6,7 +6,7 @@ def montage_filters(W):
     Parameters
     ----------
     W : Tensor
-        Input tensor to create montage of.
+        Input tensor to create montage of. (filter_h, filter_w, n_input, n_output)
 
     Returns
     -------
