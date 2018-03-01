@@ -63,6 +63,9 @@ def input_fn(is_training, data_dir, batch_size, num_epochs=1):
   if is_training:
     dataset = dataset.shuffle(buffer_size=_FILE_SHUFFLE_BUFFER)
 
+
+# flat_map(map_func)
+# Maps map_func across this dataset and **flattens** the result.
   dataset = dataset.flat_map(tf.data.TFRecordDataset)
   dataset = dataset.map(lambda value: record_parser(value, is_training),
                         num_parallel_calls=5)
