@@ -1,4 +1,5 @@
 # http://blog.csdn.net/my_offer/article/details/7430993
+
 # must compile file.cpp before compling main.cpp
 all:
 	g++ -c file.cpp -o file.o
