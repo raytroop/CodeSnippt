@@ -1,0 +1,1 @@
+int myFunc(int a, int b);
