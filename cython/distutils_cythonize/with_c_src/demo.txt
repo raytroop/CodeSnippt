@@ -1,0 +1,21 @@
+In [1]: import wrap_fib
+
+In [2]: wrap_fib?
+Type:        module
+String form: <module 'wrap_fib' from 'wrap_fib.so'>
+File:        ~/test/distutils_c/wrap_fib.so
+Docstring:   <no docstring>
+
+In [3]: dir(wrap_fib)
+Out[3]: 
+['__builtins__',
+ '__doc__',
+ '__file__',
+ '__name__',
+ '__package__',
+ '__test__',
+ 'pyfib']
+
+In [4]: wrap_fib.pyfib(11)
+11
+Out[4]: 89.0

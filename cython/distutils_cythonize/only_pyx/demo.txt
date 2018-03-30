@@ -1,0 +1,14 @@
+In [1]: import fib
+
+In [2]: fib?
+Type:        module
+String form: <module 'fib' from 'fib.so'>
+File:        ~/test/fib.so
+Docstring:   <no docstring>
+
+In [3]: fib.fib?
+Docstring: Returns the nth Fibonacci number.
+Type:      builtin_function_or_method
+
+In [4]: fib.fib(11)
+Out[4]: 89.0

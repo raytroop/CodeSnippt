@@ -1,0 +1,40 @@
+1> precompiled dynamic library libfib.so using `g++ -std=c++11`
+	g++ -std=c++11 -shared -fPIC cfib.c -o libfib.so
+rtp@ubuntu:~/test/only_so$ python setup.py build_ext --inplace
+rtp@ubuntu:~/test/only_so$ ipython
+
+In [1]: import wrap_fib
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+<ipython-input-1-00b8796f3869> in <module>()
+----> 1 import wrap_fib
+
+ImportError: ./wrap_fib.so: undefined symbol: cfib
+
+
+2> precompiled dynamic library libfib.so using `gcc`
+	gcc -shared -fPIC cfib.c -o libfib.so
+
+rtp@ubuntu:~/test/only_so$ python setup.py build_ext --inplace
+rtp@ubuntu:~/test/only_so$ ipython
+In [1]: import wrap_fib
+In [2]: wrap_fib.fib(11)
+Out[2]: 89.0
+
+
+3> precompiled dynamic library libfib.so using `g++`
+	g++ -shared -fPIC cfib.c -o libfib.so
+
+rtp@ubuntu:~/test/only_so$ python setup.py build_ext --inplace
+rtp@ubuntu:~/test/only_so$ ipython
+In [1]: import wrap_fib
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+<ipython-input-1-00b8796f3869> in <module>()
+----> 1 import wrap_fib
+
+ImportError: ./wrap_fib.so: undefined symbol: cfib
+
+
+############################################################
+It seems that the dynamic libray has to be compiled by `gcc` rather than `g++`

@@ -1,0 +1,2 @@
+There is only declaration of member function in header file-'template.h'
+Definition of member function in seperate file-'template.cpp'

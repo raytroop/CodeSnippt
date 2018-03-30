@@ -1,0 +1,3 @@
+In header "template.h", there are complete definition.
+To avoid instantiate, `extern` is used in  'templateApplication.cpp'
+Instantiation is in 'templateBuild.cpp'
