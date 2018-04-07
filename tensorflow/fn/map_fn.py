@@ -3,7 +3,7 @@ import numpy as np
 
 
 elems = np.array([1, 2, 3, 4, 5, 6])
-squares = map_fn(lambda x: x * x, elems)
+squares = tf.map_fn(lambda x: x * x, elems)
 # In [8]: squares
 # Out[8]: <tf.Tensor 'map_2/TensorArrayStack/TensorArrayGatherV3:0' shape=(6,) dtype=int64>
 # squares == [1, 4, 9, 16, 25, 36]

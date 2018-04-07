@@ -50,3 +50,44 @@ default_params = SSDParams(
         prior_scaling=[0.1, 0.1, 0.2, 0.2]
         )
 
+
+
+# Conv and DepthSepConv namedtuple define layers of the MobileNet architecture
+# Conv defines 3x3 convolution layers
+# DepthSepConv defines 3x3 depthwise convolution followed by 1x1 convolution.
+# stride is the stride of the convolution
+# depth is the number of channels or filters in a layer
+Conv = namedtuple('Conv', ['kernel', 'stride', 'depth'])
+DepthSepConv = namedtuple('DepthSepConv', ['kernel', 'stride', 'depth'])
+
+# _CONV_DEFS specifies the MobileNet body
+_CONV_DEFS = [
+    Conv(kernel=[3, 3], stride=2, depth=32),
+    DepthSepConv(kernel=[3, 3], stride=1, depth=64),
+    DepthSepConv(kernel=[3, 3], stride=2, depth=128),
+    DepthSepConv(kernel=[3, 3], stride=1, depth=128),
+    DepthSepConv(kernel=[3, 3], stride=2, depth=256),
+    DepthSepConv(kernel=[3, 3], stride=1, depth=256),
+    DepthSepConv(kernel=[3, 3], stride=2, depth=512),
+    DepthSepConv(kernel=[3, 3], stride=1, depth=512),
+    DepthSepConv(kernel=[3, 3], stride=1, depth=512),
+    DepthSepConv(kernel=[3, 3], stride=1, depth=512),
+    DepthSepConv(kernel=[3, 3], stride=1, depth=512),
+    DepthSepConv(kernel=[3, 3], stride=1, depth=512),
+    DepthSepConv(kernel=[3, 3], stride=2, depth=1024),
+    DepthSepConv(kernel=[3, 3], stride=1, depth=1024)
+]
+
+# from collections import namedtuple
+# Conv = namedtuple('Conv', ['kernel', 'stride', 'depth'])
+# x = Conv(kernel=[3, 3], stride=2, depth=32)
+# x
+# Out[5]: Conv(kernel=[3, 3], stride=2, depth=32)
+# type(x)
+# Out[6]: __main__.Conv
+# x.kernel
+# Out[7]: [3, 3]
+# x.stride
+# Out[8]: 2
+# x.depth
+# Out[9]: 3

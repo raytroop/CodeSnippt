@@ -1,0 +1,11 @@
+calloc和realloc与malloc的区别:
+
+calloc和realloc的原型如下：
+
+void *calloc ( size_t num_elements, size_t element_size );
+
+void *realloc (void *ptr, size_t new_size );
+
+calloc和malloc 主要的区别在于前者在返回内存的指针之前将它初始化为0，另外它们请求数量的方式不同。calloc的参数包括所需元素的数量和每个元素的字节，根据这些值可以计算出总共需要分配的内存空间。
+
+realloc函数用于修改一个原先已经分配的内存块的大小，可以使一块内存的扩大或缩小。当起始空间的地址为空，即*ptr = NULL,则同malloc。当*ptr非空：若nuw_size < size,即缩小*ptr所指向的内存空间，该内存块尾部的部分内存被拿掉，剩余部分内存的原先内容依然保留；若nuw_size > size,即扩大*ptr所指向的内存空间，如果原先的内存尾部有足够的扩大空间，则直接在原先的内存块尾部新增内存，如果原先的内存尾部空间不足，或原先的内存块无法改变大小，realloc将重新分配另一块nuw_size大小的内存，并把原先那块内存的内容复制到新的内存块上。因此，使用realloc后就应该改用realloc返回的新指针。
