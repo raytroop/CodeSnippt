@@ -1,0 +1,9 @@
+colorscheme desert
+set guifont=DejaVuSansMono\ 11 
+set background=dark
+syntax on  
+syntax enable
+set sm                    
+set number  
+set autochdir 
+set hls
