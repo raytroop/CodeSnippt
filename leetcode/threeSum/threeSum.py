@@ -15,33 +15,51 @@
 #   [-1, -1, 2]
 # ]
 
-
+#  !!!! Time Limit Exceeded
 class Solution:
+    def twoPonter(self, num1, nums, target):
+        """
+        :type num1: int
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        i, j = 0, len(nums) - 1
+        result = []
+        while i != j:
+            # print(i, j)
+            twoSum = nums[i] + nums[j]
+            if twoSum == target:
+                if [num1, nums[i], nums[j]] not in result:
+                    result.append([num1, nums[i], nums[j]])
+                j -= 1
+            elif twoSum < target:
+                i += 1
+            else:
+                j -= 1
+        return result
+        
     def threeSum(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        zeros = [x for x in nums if x == 0]
-        pos = [x for x in nums if x > 0]
-        neg = [x for x in nums if x < 0]
-        n_zeros = min(len(zeros), 3)
-        res = []
-        if n_zeros == 3:
-            n_zeros = [0, 1]
-            res.append([0,0,0])
-        elif n_zeros == 2 or n_zeros == 1:
-            n_zeros = [0, 1]
-        else:
-            n_zeros = [0]
-        
-        if 1 in n_zeros:
-            for val_neg in neg:
-                if -val_neg in pos and [val_neg, 0, -val_neg] not in res:
-                    res.append([val_neg, 0, -val_neg])
-        
-    def sublist(self, sums, nums):
         result = []
+        nums = sorted(nums)
+
+        for i in range(len(nums)-2):
+            num1 = nums[i]
+            res = self.twoPonter(num1, nums[i+1:], -num1)
+            if res is not None:
+                for pattern in res:
+                    if pattern not in result:
+                        result.append(pattern)
+        return result
+
+if __name__ == '__main__':
+    solver = Solution()
+    print(solver.threeSum([-1, 0, 1, 2, -1, -4]))
+
         
 
         

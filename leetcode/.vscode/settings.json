@@ -38,7 +38,8 @@
         "thread": "cpp",
         "tuple": "cpp",
         "type_traits": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "*.ipp": "cpp"
     },
     "python.pythonPath": "/home/software/miniconda3/envs/tf/bin/python"
 }
