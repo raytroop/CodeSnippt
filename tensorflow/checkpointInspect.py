@@ -1,3 +1,4 @@
+# https://stackoverflow.com/a/41917296/8037585
 import tensorflow as tf
 from tensorflow.python import pywrap_tensorflow  # pylint: disable-msg=E0611
 
